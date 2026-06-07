@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-import logoAsset from "@/assets/utam-logo.png.asset.json";
+import logoAsset from "@/assets/utam-logo-transparent.png.asset.json";
 
 
 export function Footer() {
@@ -12,9 +12,8 @@ export function Footer() {
     <footer className="bg-ink text-white/80 pt-20 pb-8">
       <div className="container-x grid gap-12 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="inline-flex items-center bg-white rounded-lg p-2 mb-4 shadow-card">
-            <img src={logoAsset.url} alt="UTAM — For Shipping and Clearance" className="h-14 w-auto object-contain" />
-          </div>
+          <img src={logoAsset.url} alt="UTAM — For Shipping and Clearance" className="h-20 w-auto object-contain mb-5" />
+
           <p className="text-sm leading-relaxed text-white/65">{t("footer.about")}</p>
         </div>
 
