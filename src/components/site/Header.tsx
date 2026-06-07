@@ -40,18 +40,14 @@ export function Header() {
     >
       <div className="container-x flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="size-9 rounded-lg bg-primary-gradient grid place-items-center shadow-glow group-hover:scale-105 transition-transform">
-            <span className="text-primary-foreground font-display font-bold text-sm">U</span>
-          </div>
-          <div className="flex flex-col leading-none">
-            <span className={cn("font-display font-bold text-lg tracking-tight", scrolled ? "text-foreground" : "text-white")}>
-              {t("brand.name")}
-            </span>
-            <span className={cn("text-[10px] font-medium uppercase tracking-wider", scrolled ? "text-muted-foreground" : "text-white/70")}>
-              Logistics
-            </span>
+          <div className={cn(
+            "rounded-lg transition-all overflow-hidden grid place-items-center",
+            scrolled ? "bg-white p-1 shadow-card" : "bg-white/95 p-1 shadow-glow",
+          )}>
+            <img src={logoAsset.url} alt="UTAM — For Shipping and Clearance" className="h-9 md:h-11 w-auto object-contain" />
           </div>
         </Link>
+
 
         <nav className="hidden lg:flex items-center gap-1">
           {nav.map((n) => {
