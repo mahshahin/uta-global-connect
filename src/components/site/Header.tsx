@@ -1,17 +1,15 @@
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Globe, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
-import logoAsset from "@/assets/utam-logo-transparent.png.asset.json";
-
-
+import logoUrl from "@/assets/utam-logo-transparent.png";
 
 export function Header() {
   const { t, lang, setLang } = useI18n();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -41,7 +39,7 @@ export function Header() {
       <div className="container-x flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center group">
           <img
-            src={logoAsset.url}
+            src={logoUrl}
             alt="UTAM — For Shipping and Clearance"
             className={cn(
               "w-auto object-contain transition-all",
@@ -49,8 +47,6 @@ export function Header() {
             )}
           />
         </Link>
-
-
 
         <nav className="hidden lg:flex items-center gap-1">
           {nav.map((n) => {
