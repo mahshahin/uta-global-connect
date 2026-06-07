@@ -3,6 +3,9 @@ import { Menu, X, Globe, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
+import logoAsset from "@/assets/utam-logo.png.asset.json";
+
+
 
 export function Header() {
   const { t, lang, setLang } = useI18n();
