@@ -1,26 +1,12 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Layout, PageHero } from "@/components/site/Layout";
+import { Layout, PageHero, SEO } from "@/components/site/Layout";
 import { useI18n } from "@/lib/i18n";
-import { Award, Target, Eye, Heart, Sparkles, Quote } from "lucide-react";
+import { Award, Target, Eye, Heart, Quote } from "lucide-react";
 
-export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About UTAM — Our Story Since 2000" },
-      { name: "description", content: "Founded in 2000, UTAM is an Egyptian logistics leader delivering global freight forwarding, customs and supply chain expertise." },
-      { property: "og:title", content: "About UTAM" },
-      { property: "og:description", content: "Two decades of moving Egypt forward." },
-      { property: "og:url", content: "/about" },
-    ],
-    links: [{ rel: "canonical", href: "/about" }],
-  }),
-  component: About,
-});
-
-function About() {
+export default function About() {
   const { t } = useI18n();
   return (
     <Layout>
+      <SEO title="About UTAM — Our Story Since 2000" description="Founded in 2000, UTAM is an Egyptian logistics leader delivering global freight forwarding, customs and supply chain expertise." path="/about" />
       <PageHero eyebrow={t("about.eyebrow")} title={t("about.title")} />
 
       <section className="py-20 md:py-28">

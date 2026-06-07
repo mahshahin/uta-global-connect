@@ -1,28 +1,14 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowRight, Plane, Ship, Truck, FileCheck2, Warehouse, Package, Boxes, Home as HomeIcon, Zap, Globe2, ShieldCheck, BadgeDollarSign, Headphones, Settings2 } from "lucide-react";
-import { Layout } from "@/components/site/Layout";
+import { Layout, SEO } from "@/components/site/Layout";
 import { useI18n } from "@/lib/i18n";
 import heroImg from "@/assets/hero-port.jpg";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "UTAM — Global Logistics & Freight Forwarding in Egypt" },
-      { name: "description", content: "Air, sea and land freight, customs clearance and supply chain solutions trusted by industry leaders across Egypt and worldwide since 2000." },
-      { property: "og:title", content: "UTAM — Global Logistics & Freight Forwarding" },
-      { property: "og:description", content: "End-to-end freight, customs and supply chain solutions across Egypt and beyond." },
-      { property: "og:url", content: "/" },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
-  }),
-  component: Home,
-});
-
-function Home() {
+export default function Home() {
   const { t } = useI18n();
   return (
     <Layout>
-      {/* HERO */}
+      <SEO title="UTAM — Global Logistics & Freight Forwarding in Egypt" description="Air, sea and land freight, customs clearance and supply chain solutions trusted by industry leaders across Egypt and worldwide since 2000." path="/" />
       <section className="relative min-h-[100svh] flex items-center pt-24 overflow-hidden">
         <img src={heroImg} alt="Container ship at port" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1080} />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/60 to-ink/90" />
@@ -51,7 +37,6 @@ function Home() {
         </div>
       </section>
 
-      {/* STATS */}
       <section className="relative -mt-16 z-10">
         <div className="container-x">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden shadow-elevated bg-card">
@@ -70,7 +55,6 @@ function Home() {
         </div>
       </section>
 
-      {/* SERVICES */}
       <section className="py-24 md:py-32">
         <div className="container-x">
           <SectionHeader eyebrow={t("services.eyebrow")} title={t("services.title")} subtitle={t("services.subtitle")} />
@@ -98,7 +82,6 @@ function Home() {
         </div>
       </section>
 
-      {/* WHY */}
       <section className="py-24 md:py-32 bg-surface">
         <div className="container-x">
           <SectionHeader eyebrow={t("why.eyebrow")} title={t("why.title")} subtitle={t("why.subtitle")} />
@@ -123,7 +106,6 @@ function Home() {
         </div>
       </section>
 
-      {/* INDUSTRIES */}
       <section className="py-24 md:py-32">
         <div className="container-x">
           <SectionHeader eyebrow={t("industries.eyebrow")} title={t("industries.title")} />
@@ -137,7 +119,6 @@ function Home() {
         </div>
       </section>
 
-      {/* CTA BANNER */}
       <section className="py-20 md:py-24">
         <div className="container-x">
           <div className="relative overflow-hidden rounded-3xl bg-hero-gradient text-white p-10 md:p-16 shadow-elevated">
