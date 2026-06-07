@@ -1,29 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Layout, PageHero } from "@/components/site/Layout";
+import { Layout, PageHero, SEO } from "@/components/site/Layout";
 import { useI18n } from "@/lib/i18n";
 import { Send, CheckCircle2 } from "lucide-react";
 
-export const Route = createFileRoute("/quote")({
-  head: () => ({
-    meta: [
-      { title: "Request a Quote — UTAM" },
-      { name: "description", content: "Get a tailored freight forwarding quote from UTAM within 24 hours. Air, sea, land or LCL — import or export." },
-      { property: "og:title", content: "Request a Quote — UTAM" },
-      { property: "og:description", content: "Tailored logistics pricing within 24 hours." },
-      { property: "og:url", content: "/quote" },
-    ],
-    links: [{ rel: "canonical", href: "/quote" }],
-  }),
-  component: Quote,
-});
-
-function Quote() {
+export default function Quote() {
   const { t } = useI18n();
   const [sent, setSent] = useState(false);
 
   return (
     <Layout>
+      <SEO title="Request a Quote — UTAM" description="Get a tailored freight forwarding quote from UTAM within 24 hours. Air, sea, land or LCL — import or export." path="/quote" />
       <PageHero eyebrow={t("quote.eyebrow")} title={t("quote.title")} subtitle={t("quote.subtitle")} />
 
       <section className="py-20 md:py-28">

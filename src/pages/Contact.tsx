@@ -1,22 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Layout, PageHero } from "@/components/site/Layout";
+import { Layout, PageHero, SEO } from "@/components/site/Layout";
 import { useI18n } from "@/lib/i18n";
 import { Mail, Phone, MapPin, Send, MessageCircle } from "lucide-react";
-
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact UTAM — Get in Touch" },
-      { name: "description", content: "Reach UTAM offices across Egypt — Nasr City, Alexandria, Cairo Airport, Port Said, Sokhna and New Cairo. We respond within one business day." },
-      { property: "og:title", content: "Contact — UTAM" },
-      { property: "og:description", content: "Let's talk logistics." },
-      { property: "og:url", content: "/contact" },
-    ],
-    links: [{ rel: "canonical", href: "/contact" }],
-  }),
-  component: Contact,
-});
 
 const offices = [
   { k: "office.nasr", phone: "+20 2 2417 8630" },
@@ -27,12 +12,13 @@ const offices = [
   { k: "office.newcairo", phone: "+20 2 2417 8631" },
 ];
 
-function Contact() {
+export default function Contact() {
   const { t } = useI18n();
   const [sent, setSent] = useState(false);
 
   return (
     <Layout>
+      <SEO title="Contact UTAM — Get in Touch" description="Reach UTAM offices across Egypt — Nasr City, Alexandria, Cairo Airport, Port Said, Sokhna and New Cairo." path="/contact" />
       <PageHero eyebrow={t("contact.eyebrow")} title={t("contact.title")} subtitle={t("contact.subtitle")} />
 
       <section className="py-20 md:py-28">

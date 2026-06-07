@@ -1,28 +1,14 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Layout, PageHero } from "@/components/site/Layout";
+import { Layout, PageHero, SEO } from "@/components/site/Layout";
 import { useI18n } from "@/lib/i18n";
-
-export const Route = createFileRoute("/clients")({
-  head: () => ({
-    meta: [
-      { title: "Our Clients — UTAM" },
-      { name: "description", content: "UTAM partners with importers, exporters and global brands across automotive, FMCG, industrial and retail sectors in Egypt." },
-      { property: "og:title", content: "Clients — UTAM" },
-      { property: "og:description", content: "Trusted by brands that demand reliability." },
-      { property: "og:url", content: "/clients" },
-    ],
-    links: [{ rel: "canonical", href: "/clients" }],
-  }),
-  component: Clients,
-});
 
 const featured = ["Romaqua Group", "Borsec", "Industrial Co.", "Auto Egypt", "FMCG Brands", "Retail Holding", "Med Health", "Power Group"];
 const industries = ["Automotive", "Industrial", "FMCG", "Retail", "Electronics", "Healthcare", "Construction", "Energy"];
 
-function Clients() {
+export default function Clients() {
   const { t } = useI18n();
   return (
     <Layout>
+      <SEO title="Our Clients — UTAM" description="UTAM partners with importers, exporters and global brands across automotive, FMCG, industrial and retail sectors in Egypt." path="/clients" />
       <PageHero eyebrow={t("clients.eyebrow")} title={t("clients.heading")} subtitle={t("clients.body")} />
 
       <section className="py-20 md:py-28">

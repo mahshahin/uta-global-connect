@@ -1,8 +1,7 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-import logoAsset from "@/assets/utam-logo-transparent.png.asset.json";
-
+import logoUrl from "@/assets/utam-logo-transparent.png";
 
 export function Footer() {
   const { t } = useI18n();
@@ -12,11 +11,9 @@ export function Footer() {
     <footer className="bg-ink text-white/80 pt-20 pb-8">
       <div className="container-x grid gap-12 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <img src={logoAsset.url} alt="UTAM — For Shipping and Clearance" className="h-20 w-auto object-contain mb-5" />
-
+          <img src={logoUrl} alt="UTAM — For Shipping and Clearance" className="h-20 w-auto object-contain mb-5" />
           <p className="text-sm leading-relaxed text-white/65">{t("footer.about")}</p>
         </div>
-
 
         <div>
           <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">{t("footer.quick")}</h4>

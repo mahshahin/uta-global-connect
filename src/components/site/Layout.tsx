@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Helmet } from "react-helmet-async";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 
@@ -36,5 +37,18 @@ export function PageHero({
         )}
       </div>
     </section>
+  );
+}
+
+export function SEO({ title, description, path }: { title: string; description: string; path: string }) {
+  return (
+    <Helmet>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={path} />
+      <link rel="canonical" href={path} />
+    </Helmet>
   );
 }

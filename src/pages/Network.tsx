@@ -1,21 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Layout, PageHero } from "@/components/site/Layout";
+import { Layout, PageHero, SEO } from "@/components/site/Layout";
 import { useI18n } from "@/lib/i18n";
 import { MapPin, Globe2 } from "lucide-react";
-
-export const Route = createFileRoute("/network")({
-  head: () => ({
-    meta: [
-      { title: "Global Network — UTAM" },
-      { name: "description", content: "Six branches across Egypt and an exclusive partner network covering every major port, airport and trade lane worldwide." },
-      { property: "og:title", content: "Global Network — UTAM" },
-      { property: "og:description", content: "From Cairo to every major trade lane on the planet." },
-      { property: "og:url", content: "/network" },
-    ],
-    links: [{ rel: "canonical", href: "/network" }],
-  }),
-  component: Network,
-});
 
 const branches = [
   { k: "office.nasr", phone: "+20 2 2417 8630" },
@@ -35,10 +20,11 @@ const regions = [
   { name: "Oceania", cities: "Sydney · Melbourne · Auckland" },
 ];
 
-function Network() {
+export default function Network() {
   const { t } = useI18n();
   return (
     <Layout>
+      <SEO title="Global Network — UTAM" description="Six branches across Egypt and an exclusive partner network covering every major port, airport and trade lane worldwide." path="/network" />
       <PageHero eyebrow={t("network.eyebrow")} title={t("network.title")} subtitle={t("network.subtitle")} />
 
       <section className="py-20 md:py-28">

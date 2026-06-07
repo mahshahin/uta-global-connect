@@ -1,24 +1,10 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { Layout, PageHero } from "@/components/site/Layout";
+import { Link } from "react-router-dom";
+import { Layout, PageHero, SEO } from "@/components/site/Layout";
 import { useI18n } from "@/lib/i18n";
 import { Plane, Ship, Boxes, Truck, FileCheck2, Warehouse, Package, Home as HomeIcon, ArrowRight } from "lucide-react";
 import airImg from "@/assets/air-freight.jpg";
 import warehouseImg from "@/assets/warehouse.jpg";
 import landImg from "@/assets/land-transport.jpg";
-
-export const Route = createFileRoute("/services")({
-  head: () => ({
-    meta: [
-      { title: "Logistics Services — UTAM" },
-      { name: "description", content: "Air, sea, land, LCL consolidation, customs brokerage, warehousing, project cargo and door-to-door logistics services." },
-      { property: "og:title", content: "Services — UTAM" },
-      { property: "og:description", content: "Eight services. One accountable logistics partner." },
-      { property: "og:url", content: "/services" },
-    ],
-    links: [{ rel: "canonical", href: "/services" }],
-  }),
-  component: Services,
-});
 
 const services = [
   { Icon: Plane, k: "svc.air", img: airImg },
@@ -31,10 +17,11 @@ const services = [
   { Icon: HomeIcon, k: "svc.door", img: null },
 ];
 
-function Services() {
+export default function Services() {
   const { t } = useI18n();
   return (
     <Layout>
+      <SEO title="Logistics Services — UTAM" description="Air, sea, land, LCL consolidation, customs brokerage, warehousing, project cargo and door-to-door logistics services." path="/services" />
       <PageHero eyebrow={t("services.eyebrow")} title={t("services.heading")} subtitle={t("services.tagline")} />
 
       <section className="py-20 md:py-28">
