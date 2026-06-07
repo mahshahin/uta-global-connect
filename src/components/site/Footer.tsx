@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
+import logoAsset from "@/assets/utam-logo.png.asset.json";
+
 
 export function Footer() {
   const { t } = useI18n();
