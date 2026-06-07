@@ -19,7 +19,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const { t, dir } = useI18n();
+  const { t } = useI18n();
   return (
     <Layout>
       {/* HERO */}
