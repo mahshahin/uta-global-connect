@@ -39,14 +39,17 @@ export function Header() {
       )}
     >
       <div className="container-x flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center gap-2.5 group">
-          <div className={cn(
-            "rounded-lg transition-all overflow-hidden grid place-items-center",
-            scrolled ? "bg-white p-1 shadow-card" : "bg-white/95 p-1 shadow-glow",
-          )}>
-            <img src={logoAsset.url} alt="UTAM — For Shipping and Clearance" className="h-9 md:h-11 w-auto object-contain" />
-          </div>
+        <Link to="/" className="flex items-center group">
+          <img
+            src={logoAsset.url}
+            alt="UTAM — For Shipping and Clearance"
+            className={cn(
+              "w-auto object-contain transition-all",
+              scrolled ? "h-12 md:h-14" : "h-14 md:h-16 drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]",
+            )}
+          />
         </Link>
+
 
 
         <nav className="hidden lg:flex items-center gap-1">
